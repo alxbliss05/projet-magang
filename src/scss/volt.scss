@@ -1,18 +1,15 @@
-@import "../../node_modules/bootstrap/scss/mixins";
+// Import Bootstrap functions dan variables dulu
 @import "../../node_modules/bootstrap/scss/functions";
-
-@import "volt/variables";
-
+@import "../../node_modules/bootstrap/scss/variables";
+@import "volt/variables"; // volt variables setelah bootstrap variables
+@import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+// Kemudian import volt components
 @import "volt/vendor";
-
 @import "volt/mixins";
 @import "volt/functions";
-
 @import "volt/reboot";
 @import "volt/utilities";
-
 @import "volt/layout";
-
 @import "volt/components";
