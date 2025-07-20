@@ -13,6 +13,9 @@
 
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
 
+// Enable math functions (for division)
+@use "sass:math";
+
 // Bootstrap mixins and functions
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/functions";
