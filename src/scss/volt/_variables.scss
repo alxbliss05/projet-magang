@@ -3,6 +3,8 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
+@use "sass:math";
+
 // Color system
 
 // Shades of grey
@@ -344,8 +346,8 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0));
 $spacer: 1rem;
 $spacers: (
   0: 0,
-1: $spacer / 4,
-  2: $spacer / 2,
+  1: math.div($spacer, 4),
+  2: math.div($spacer, 2),
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
@@ -558,7 +560,7 @@ $h4-font-size:                $font-size-base * 1.5;
 $h5-font-size:                $font-size-base * 1.25;
 $h6-font-size:                $font-size-base;
 
-$headings-margin-bottom:      $spacer / 2;
+$headings-margin-bottom:      math.div($spacer, 2);
 $headings-font-family:        null;
 $headings-font-style:         null;
 $headings-font-weight:        $font-weight-bold;
@@ -780,7 +782,7 @@ $form-label-color:                      null;
 
 $input-padding-y:                       $input-btn-padding-y;
 $input-padding-x:                       $input-btn-padding-x;
-$inpu-lg-padding-y:                     1rem;
+$input-lg-padding-y:                    1rem;
 $input-font-family:                     $input-btn-font-family;
 $input-font-size:                       $input-btn-font-size;
 $input-font-weight:                     $font-weight-base;
@@ -820,7 +822,7 @@ $input-height-border:                   $input-border-width * 2;
 
 $input-height-inner:                    add($input-line-height * 1em, $input-padding-y * 2);
 $input-height-inner-half:               add($input-line-height * .5em, $input-padding-y);
-$input-height-inner-quarter:            add($input-line-height * .25em, $input-padding-y / 2);
+$input-height-inner-quarter:            add($input-line-height * .25em, math.div($input-padding-y, 2));
 
 $input-height:                          add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false));
 $input-height-sm:                       add($input-line-height * 1em, add($input-padding-y-sm * 2, $input-height-border, false));
@@ -1202,7 +1204,7 @@ $dropdown-border-radius:            $border-radius;
 $dropdown-border-width:             $border-width;
 $dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width);
 $dropdown-divider-bg:               $gray-200;
-$dropdown-divider-margin-y:         $spacer / 2;
+$dropdown-divider-margin-y:         math.div($spacer, 2);
 $dropdown-box-shadow:               $box-shadow;
 
 $dropdown-link-color:               $gray-900;
@@ -1214,7 +1216,7 @@ $dropdown-link-active-bg:           $gray-400;
 
 $dropdown-link-disabled-color:      $gray-600;
 
-$dropdown-item-padding-y:           $spacer / 4;
+$dropdown-item-padding-y:           math.div($spacer, 4);
 $dropdown-item-padding-x:           $spacer;
 
 $dropdown-header-color:             $gray-900;
@@ -1274,7 +1276,7 @@ $card-bg:                           $white;
 
 $card-img-overlay-padding:          $spacer;
 
-$card-group-margin:                 $grid-gutter-width / 2;
+$card-group-margin:                 math.div($grid-gutter-width, 2);
 $transition-bezier-card:            cubic-bezier(0.34, 1.45, 0.7, 1);
 
 //Timelines
@@ -1460,7 +1462,7 @@ $alert-color-level:                 10 !default;
 // Progress bars
 
 $progress-height:                   1rem;
-$progress-font-size:                $font-size-base * .75;
+$progress-font-size:                math.div($font-size-base, 1.333);
 $progress-bg:                       $gray-200;
 $progress-border-radius:            $border-radius;
 $progress-box-shadow:               $box-shadow-inset;
@@ -1485,7 +1487,7 @@ $list-group-border-radius:          $border-radius;
 $list-group-sm-item-padding-y:      .625rem;
 $list-group-sm-item-padding-x:      .875rem;
 
-$list-group-item-padding-y:         $spacer / 2;
+$list-group-item-padding-y:         math.div($spacer, 2);
 $list-group-item-padding-x:         $spacer;
 $list-group-item-bg-level:          -9;
 $list-group-item-color-level:       6;
@@ -1524,7 +1526,7 @@ $figure-caption-color:              $gray-600;
 // Breadcrumbs
 
 $breadcrumb-font-size:              null;
-$breadcrumb-padding-y:              $spacer / 2;
+$breadcrumb-padding-y:              math.div($spacer, 2);
 $breadcrumb-padding-x:              $spacer;
 $breadcrumb-item-padding-x:         .5rem;
 $breadcrumb-margin-bottom:          1rem;
@@ -1570,7 +1572,7 @@ $carousel-control-prev-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://
 $carousel-control-next-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'><path d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/></svg>");
 
 $carousel-transition-duration:       .6s;
-$carousel-transition:                transform $carousel-transition-duration ease-in-out; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+$carousel-transition:                transform $carousel-transition-duration ease-in-out;
 
 
 // Spinners
@@ -1620,11 +1622,10 @@ $close-bg:                          transparent;
 $close-hover-bg:                    transparent;
 $close-color:                       rgba(0, 0, 0, .6);
 $close-hover-color:                 rgba(0, 0, 0, .9);
-$close-font-size:                   $font-size-base * 1.5;
+$close-font-size:                   math.div($font-size-base, 0.666);
 $close-font-weight:                 $font-weight-bold;
 $close-color:                       $black;
 $close-text-shadow:                 0 1px 0 $white;
-
 
 
 // Code
@@ -1679,3 +1680,4 @@ $padding-footer:          .375rem ;
 $padding-footer-md:       .625rem ;
 $padding-footer-general:  .9375rem;
 $padding-footer-big:      1.5rem;
+
