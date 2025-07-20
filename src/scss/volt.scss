@@ -1,11 +1,11 @@
-// Import Bootstrap functions dan variables dulu
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "volt/variables"; // volt variables setelah bootstrap variables
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/functions";
+// Import Bootstrap dengan path yang benar
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables"; 
+@import "volt/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/bootstrap";
 
-// Kemudian import volt components
+// Import volt components
 @import "volt/vendor";
 @import "volt/mixins";
 @import "volt/functions";
