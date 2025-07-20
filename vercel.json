@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--openssl-legacy-provider",
+      "GENERATE_SOURCEMAP": "false"
+    }
+  },
+  "buildCommand": "NODE_OPTIONS='--openssl-legacy-provider' npm run build",
+  "outputDirectory": "build",
+  "installCommand": "npm install --legacy-peer-deps"
+}
+
