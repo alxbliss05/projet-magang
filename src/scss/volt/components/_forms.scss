@@ -3,7 +3,7 @@
 
     @include media-breakpoint-up(lg) {
         &.form-control-lg{
-            padding: $inpu-lg-padding-y $input-padding-x;
+            padding: $input-lg-padding-y $input-padding-x;
         }
     }
 
@@ -19,65 +19,70 @@
 
 .search-bar {
     .form-control {
-        width: 280px;
-        transition: width .2s ease-in-out;
-
-        @include media-breakpoint-down(sm) {
-            width: 120px;
-
-            &:focus {
-                width: 150px;
-            }
-        }
+        border: none;
+        padding-left: 2.375rem;
+    }
+    .input-group-text {
+        background-color: $input-bg;
+        border: $input-border-width solid $input-border-color;
+        border-right: none;
     }
 }
 
-.input-group {
-    .form-control:focus {
-        border-color: $input-border-color;
+.form-control-flush {
+    background-color: transparent;
+    border-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
 
-        & + .input-group-text {
-            border-color: $input-border-color; 
-        }
+.form-control-muted {
+    background-color: $gray-200;
+    border-color: $gray-200;
+    box-shadow: none;
+
+    &:focus {
+        background-color: $white;
     }
 }
 
-.focused {
+.form-control-alternative {
+    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
+    border: 0;
+    transition: box-shadow .15s ease;
+
+    &:focus {
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.has-icon {
+    position: relative;
 
     .form-control {
-        border-color: $input-focus-border-color;
-        background-color: $input-focus-bg;
+        padding-left: 2.375rem;
+    }
+
+    .form-control-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0.625rem;
+        pointer-events: none;
+        color: $gray-600;
+        transition: color .15s ease;
+    }
+
+    &.has-icon-right {
+        .form-control {
+            padding-left: $input-padding-x;
+            padding-right: 2.375rem;
+        }
+
+        .form-control-icon {
+            right: 0.625rem;
+            left: auto;
+        }
     }
 }
 
-.form-switch {
-    padding-left: $form-switch-padding-start;
-  
-    .form-check-input {
-        height: 1.275em;
-    }
-}
-
-.form-select {
-    .form-select-lg{
-        padding: $form-select-padding-y ($form-select-padding-x + $form-select-indicator-padding) $form-select-padding-y $form-select-padding-x;
-    }
-}
-
-//Add File Alternative Style
-
-.file-field input[type="file"] {
-    max-width: 230px;
-    position: absolute;
-    cursor: pointer;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    padding-bottom: 30px;
-}
-.file-field span {
-    cursor: pointer;
-}
-
-.datepicker-dropdown {
-    z-index: 9999;
-}
